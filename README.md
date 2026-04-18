@@ -1,124 +1,173 @@
-Sentiment Analysis with Multiple Models
-Project Overview
+# Sentiment Analysis with Multiple Models
 
-This project performs sentiment analysis on text data using classical machine learning models. The objective is to classify text (movie reviews) into Positive or Negative sentiment and compare the performance of Naive Bayes and Support Vector Machine (SVM).
+## Overview  
+This project implements a sentiment analysis system that classifies textual data into **positive** and **negative** sentiments using classical machine learning approaches. The system is designed to analyze real-world text data such as movie reviews and determine the emotional tone expressed in the content.  
 
-The project follows a research-oriented approach including preprocessing, feature extraction, model training, evaluation, and ablation study.
+Unlike basic implementations, this project follows a **research-oriented experimental approach**, where two widely used models—**Naive Bayes** and **Support Vector Machine (SVM)**—are compared in terms of performance, efficiency, and robustness. The system also includes preprocessing techniques, feature engineering using **TF-IDF with n-grams**, and an ablation study to evaluate the contribution of each component.  
 
-Objectives
-Perform sentiment classification on real-world dataset
-Compare Naive Bayes and SVM models
-Analyze impact of preprocessing and TF-IDF
-Conduct ablation study
-Visualize results using graphs and confusion matrix
-Project Structure
+The goal of this project is not only to build a sentiment classifier but also to understand how different techniques impact model performance in real-world scenarios.
+
+---
+
+## Features  
+
+### Text Preprocessing  
+- Converts text to lowercase  
+- Removes punctuation and special characters  
+- Tokenizes text into words  
+- Removes stopwords  
+- Improves overall data quality  
+
+### Feature Extraction  
+- Uses **TF-IDF (Term Frequency–Inverse Document Frequency)**  
+- Assigns importance to words based on frequency  
+- Supports **n-grams (unigrams and bigrams)**  
+- Captures contextual patterns such as *“not good”*  
+
+### Model Training  
+- Implements **Naive Bayes classifier**  
+- Implements **Support Vector Machine (SVM)**  
+- Trains both models on the same dataset for comparison  
+
+### Evaluation Metrics  
+- Accuracy  
+- Precision  
+- Recall  
+- F1-score  
+
+### Visualization  
+- Accuracy comparison graph  
+- Confusion matrix  
+- Helps in understanding model performance  
+
+### Ablation Study  
+- Without preprocessing  
+- Using CountVectorizer  
+- Using TF-IDF with Naive Bayes  
+- Using TF-IDF with SVM  
+
+---
+
+## Output  
+
+The system generates:  
+- Model performance metrics  
+- Accuracy comparison graph  
+- Confusion matrix  
+- Sample predictions  
+- Ablation study results  
+
+---
+
+## Classification Criteria  
+
+- **Positive** → Text expresses positive sentiment  
+- **Negative** → Text expresses negative sentiment  
+
+---
+
+## Project Structure  
 
 sentiment-analysis-multiple-models/
 
-data/
-dataset_large.csv
+data/  
+    dataset_large.csv  
 
-src/
-preprocess.py
-train_models.py
-evaluate.py
+src/  
+    preprocess.py  
+    train_models.py  
+    evaluate.py  
 
-results/
-accuracy_graph.png
-confusion_matrix.png
+results/  
+    accuracy_graph.png  
+    confusion_matrix.png  
 
-main.py
-requirements.txt
-README.md
-paper.pdf
+main.py  
+requirements.txt  
+README.md  
+paper.pdf  
 
-Dataset
-Dataset: IMDB Movie Reviews
-Total records: 50,000
-Labels: Positive / Negative
-Real-world dataset with diverse text
-Technologies Used
-Python
-Pandas
-NumPy
-Scikit-learn
-NLTK
-Matplotlib
-Workflow
-Load dataset
-Preprocess text (lowercase, remove punctuation, stopwords)
-Convert text into TF-IDF features
-Train models (Naive Bayes, SVM)
-Evaluate performance
-Generate graphs and confusion matrix
-Results
+---
 
-Naive Bayes:
-Accuracy: 0.84
-Precision: 0.83
-Recall: 0.82
-F1-score: 0.82
+## Technologies Used  
 
-SVM:
-Accuracy: 0.90
-Precision: 0.89
-Recall: 0.88
-F1-score: 0.88
+- Python  
+- Pandas  
+- NumPy  
+- Scikit-learn  
+- NLTK  
+- Matplotlib  
 
-Conclusion: SVM performs better due to its ability to handle high-dimensional data.
+---
 
-Ablation Study
+## Installation  
 
-Without preprocessing: 0.70
-CountVectorizer: 0.78
-TF-IDF + NB: 0.84
-TF-IDF + SVM: 0.90
+Clone the repository:  
+git clone https://github.com/your-username/sentiment-analysis-multiple-models.git  
 
-Insight: Preprocessing and TF-IDF significantly improve performance.
+Navigate to project folder:  
+cd sentiment-analysis-multiple-models  
 
-Visual Outputs
-Accuracy comparison graph is stored in results/accuracy_graph.png
-Confusion matrix is stored in results/confusion_matrix.png
-How to Run
+Install dependencies:  
+pip install -r requirements.txt  
 
-Step 1: Clone repository
-git clone https://github.com/your-username/sentiment-analysis-multiple-models.git
+Run the project:  
+python main.py  
 
-Step 2: Navigate to folder
-cd sentiment-analysis-multiple-models
+---
 
-Step 3: Install dependencies
-pip install -r requirements.txt
+## Usage  
 
-Step 4: Run the project
-python main.py
+- Load dataset  
+- Preprocess text  
+- Train models  
+- Evaluate performance  
+- Generate graphs and confusion matrix  
 
-Requirements
+---
 
-pandas
-numpy
-scikit-learn
-nltk
-matplotlib
+## Results  
 
-Research Paper
+| Model          | Accuracy | Precision | Recall | F1-score |
+|---------------|---------|----------|--------|---------|
+| Naive Bayes   | 0.84    | 0.83     | 0.82   | 0.82    |
+| SVM           | 0.90    | 0.89     | 0.88   | 0.88    |
 
-The project includes a research paper (paper.pdf) with detailed methodology, experiments, and analysis.
+**Conclusion:**  
+SVM performs better than Naive Bayes due to its ability to handle high-dimensional data effectively.
 
-Limitations
-Cannot handle sarcasm effectively
-Limited contextual understanding
-Only binary classification
-Future Work
-Use deep learning models like BERT
-Extend to multilingual datasets
-Improve sarcasm detection
-Build real-time system
-Contribution
+---
 
-You can fork this repository and improve the project.
+## Ablation Study Results  
 
-Acknowledgment
+| Experiment                | Accuracy |
+|--------------------------|---------|
+| Without preprocessing    | 0.70    |
+| CountVectorizer          | 0.78    |
+| TF-IDF + Naive Bayes     | 0.84    |
+| TF-IDF + SVM             | 0.90    |
 
-IMDB Dataset
-Scikit-learn Library
+**Insight:**  
+Preprocessing and TF-IDF significantly improve model performance.
+
+---
+
+## Future Improvements  
+
+- Implement deep learning models such as BERT  
+- Extend to multilingual sentiment analysis  
+- Improve sarcasm detection  
+- Build real-time sentiment analysis system  
+
+---
+
+## Conclusion  
+
+This project demonstrates how classical machine learning models can be effectively used for sentiment analysis. It highlights the importance of preprocessing and feature engineering, while also showing that SVM provides better performance compared to Naive Bayes in most scenarios.
+
+---
+
+## Acknowledgment  
+
+- IMDB Dataset  
+- Scikit-learn Library  
